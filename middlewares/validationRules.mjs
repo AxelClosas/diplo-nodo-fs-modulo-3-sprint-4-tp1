@@ -1,3 +1,4 @@
+import sanitizeHTML from 'sanitize-html'
 import { body } from 'express-validator'
 
 export const agregarValidationRules = (req, res) => [
@@ -18,9 +19,12 @@ export const agregarValidationRules = (req, res) => [
   body('poderes')
     .isArray().withMessage('La lista de poderes debe ser un array.'),
   body('poderes.*')
+    .customSanitizer(value => sanitizeHTML(value, {
+      allowedTags: [], // Sin etiquetas HTML permitidas
+      allowedAttributes: {}
+    }))
     .isString().withMessage('Cada poder debe ser una cadena de texto')
     .trim()
-    .escape()
     .notEmpty().withMessage('Los poderes no pueden estar vacíos.')
     .isLength({min: 3, max: 60}).withMessage('Cada poder debe tener entre 3 y 60 caracteres'),
   body('poderes')
