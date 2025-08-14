@@ -2,6 +2,8 @@ import express from 'express'
 import { connectDB } from './config/dbConfig.mjs'
 import superHeroRoutes from './routes/superHeroRoutes.mjs'
 import methodOverride from 'method-override'
+import path from 'path'
+import expressLayouts from 'express-ejs-layouts'
 
 
 
@@ -14,11 +16,17 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 /* Middleware para trabajar con el método put desde un formulario */
 app.use(methodOverride('_method'))
-/* Middleware para servir archivos estáticos */
-app.use(express.static('public'))
 
 /* Configuramos EJS como Motor de Vistas */
 app.set('view engine', 'ejs')
+app.set('views', path.resolve('./views'))
+
+/* Configuramos Express Layouts */
+app.use(expressLayouts)
+app.set('layout', 'layout') // Archivo base de Layout
+
+/* Middleware para servir archivos estáticos */
+app.use(express.static(path.resolve('./public')))
 
 /* Conexión a MongoDB */
 connectDB()
