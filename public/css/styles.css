@@ -42,7 +42,9 @@ html {
   /* Opcional extra inspirado en el traje negro de Spider-Man */
   --color-venom-black: #1C1C1E;      /* Negro profundo para estilos oscuros */
 }
-
+body {
+  background-color: var(--color-background);
+}
 a {
   text-decoration: none;
   color: inherit;
@@ -55,6 +57,8 @@ p {
 button {
   cursor: pointer;
 }
+
+
 
 .header {
   background-color: var(--color-venom-black);
@@ -92,9 +96,6 @@ button {
   }
 }
 
-body {
-  background-color: var(--color-background);
-}
 
 .main {
   padding: 1rem;
@@ -335,5 +336,17 @@ body {
         justify-content: end;
       }
     }
+  }
+}
+
+footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: var(--color-venom-black);
+  color: var(--color-primary-contrast);
+  width: 100%;
+
+  & a:hover {
+    color: var(--color-secondary);
   }
 }
