@@ -1,0 +1,38 @@
+{
+  "name": "tp3",
+  "version": "1.0.0",
+  "description": "Trabajo Práctico N°3 - Sprint 3 - Modulo Backend con Node.js",
+  "main": "app.mjs",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.mjs",
+    "dev": "nodemon app.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AxelClosas/diplo-nodo-fs-modulo-3-sprint-3-tp3.git"
+  },
+  "keywords": [
+    "Javascript",
+    "Node.js",
+    "MongoDB",
+    "Mongoose",
+    "Backend",
+    "API"
+  ],
+  "author": "Axel Closas <axelclosas13@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/AxelClosas/diplo-nodo-fs-modulo-3-sprint-3-tp3/issues"
+  },
+  "homepage": "https://github.com/AxelClosas/diplo-nodo-fs-modulo-3-sprint-3-tp3#readme",
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^5.1.0",
+    "express-ejs-layouts": "^2.5.1",
+    "express-validator": "^7.2.1",
+    "method-override": "^3.0.0",
+    "mongoose": "^8.15.1"
+  }
+}

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/normalize.css" type="text/css">
+  <link rel="stylesheet" href="/css/styles.css" type="text/css">
+
+  <title>Editar Superhéroe</title>
+</head>
+<body>
+  <%- include('partials/header') %>
+
+  <main class="main">
+    <form class="main__form" action="/api/heroes/<%=superheroe._id%>?_method=PUT" method="POST">
+      <div>
+        <label for="nombreSuperHeroe">Nombre Superhéroe</label>
+        <input type="text" name="nombreSuperHeroe" id="nombreSuperHeroe" value="<%= superheroe.nombreSuperHeroe %>" required>
+      </div>
+      
+  
+      <div>
+        <label for="nombreReal">Nombre Real</label>
+        <input type="text" name="nombreReal" id="nombreReal" value="<%= superheroe.nombreReal %>" required>
+      </div>
+      
+      
+      <div>
+        <label for="edad">Edad</label>
+        <input type="number" name="edad" id="edad" value="<%= superheroe.edad %>" required>
+      </div>
+      
+      
+      <div>
+        <label for="planetaOrigen">Planeta de Origen</label>
+        <input type="text" name="planetaOrigen" id="planetaOrigen" value="<%= superheroe.planetaOrigen %>">
+      </div>
+      
+      
+      <div>
+        <label for="poderes">Poderes</label>
+        <p><small>Ingresa los poderes separados por coma.</small></p>
+        <% if (superheroe.poderes) { %>
+          <input type="text" name="poderes" id="poderes" value="<%= superheroe.poderes.join(', ') %>" required>
+        <% } else { %>
+          <input type="text" name="poderes" id="poderes" value="" required>
+        <% } %>
+      </div>
+      
+  
+      <div>
+        <label for="aliados">Aliados</label>
+        <p><small>Ingresa los aliados separados por coma.</small></p>
+        <% if (superheroe.aliados) { %>
+          <input type="text" name="aliados" id="aliados" value="<%= superheroe.aliados.join(', ') %>">
+        <% } else { %>
+          <input type="text" name="aliados" id="aliados" value="">
+        <% } %>
+      </div>
+  
+      <div>
+        <label for="enemigos">Enemigos</label>
+        <p><small>Ingresa los enemigos separados por coma.</small></p>
+        <% if (superheroe.enemigos) { %>
+          <input type="text" name="enemigos" id="enemigos" value="<%= superheroe.enemigos.join(', ') %>">
+        <% } else { %>
+          <input type="text" name="enemigos" id="enemigos" value="">
+        <% } %>
+      </div>
+      
+  
+      <div>
+        <label for="creador">Creador</label>
+        <input type="text" name="creador" id="creador" value="<%= superheroe.creador %> ">
+      </div>
+      
+      <input class="form__btnPrincipal" type="submit" value="Actualizar">
+      <button class="form__btnCancelar" type="button" id="btnCancelar">Cancelar</button>
+
+    </form>
+  </main>
+  <script>
+    const btnCancelar = document.querySelector("#btnCancelar")
+    btnCancelar.addEventListener('click', () => {
+      // console.log(location.origin.concat('/api','/heroes'))
+      window.location.href = location.origin.concat('/api/heroes')
+    })
+  </script>
+</body>
+</html>

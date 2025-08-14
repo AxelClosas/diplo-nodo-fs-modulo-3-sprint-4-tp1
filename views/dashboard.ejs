@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://kit.fontawesome.com/907adcdaf9.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="/css/normalize.css" type="text/css">
+  <link rel="stylesheet" href="/css/styles.css" type="text/css">
+  <title>Lista de Superhéroes</title>
+</head>
+
+<body>
+  <%- include('partials/header') %>
+    <main class="main">
+      <h1 >Repositorio de Superhéroes</h1>
+      <div class="main__tabla">
+        <table >
+          <thead>
+            <tr>
+              <th>Ver</th>
+              <th>Superhéroe</th>
+              <th>Nombre Real</th>
+              <th>Edad</th>
+              <th>Planeta de Origen</th>
+              <th>Poderes</th>
+              <th>Aliados</th>
+              <th>Enemigos</th>
+              <th>Creador</th>
+              <th>Acción</th>
+            </tr>
+          </thead>
+          <tbody id="tbody-dashboard">
+            <% if (superheroes) { %>
+              <% superheroes.forEach(superheroe=> { %>
+                <tr>
+                  <td><span><i class="fa-solid fa-eye"></i></span></td>
+                  <td ><%= superheroe.nombreSuperHeroe %></td>
+                  <td ><%= superheroe.nombreReal %></td>
+                  <td ><%= superheroe.edad %></td>
+                  <td ><%= superheroe.planetaOrigen %></td>
+
+                  <% if (superheroe.poderes) { %>
+                    <td ><%= superheroe.poderes.join(', ')%></td>
+                  <% } else { %>
+                    <td > - </td>
+                  <% } %>
+                  
+                  <% if (superheroe.aliados) { %>
+                    <td ><%= superheroe.aliados.join(', ') %></td>
+                  <% } else { %>
+                    <td > - </td>
+                  <% } %>
+                
+                  <% if (superheroe.enemigos) { %>
+                    <td ><%= superheroe.enemigos.join(', ') %></td>
+                  <% } else { %>
+                    <td > - </td>
+                  <% } %>
+              <td ><%= superheroe.creador %></td>
+              <td >
+                <a href="/api/heroes/<%= superheroe._id %>/editar">
+                  <i class="fa-solid fa-file-pen"></i> <span class="hidden sm:inline-table">Editar</span>
+                </a>
+                <a href="/api/heroes/heroe/<%= superheroe._id %>">
+                  <i class="fa-solid fa-trash"></i> <span class="hidden sm:inline-table">Eliminar</span>
+                </a>
+              </td>
+             </tr>
+            <% }) %>
+          <% } %>
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+  <script type="module" src="/js/vistaModalSuperheroe.js"></script>
+</body>
+</html>
