@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://kit.fontawesome.com/907adcdaf9.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="/css/normalize.css" type="text/css">
+  <link rel="stylesheet" href="/css/styles.css" type="text/css">
+  <title><%= title %></title>
+</head>
+
+<body>
+  <header class="header">
+    <%- include('partials/navbar') %>
+  </header>
+  <main class="main">
+    <%- body %>
+  </main>
+  
+  <%- include('partials/footer') %>
+
+  <script type="module" src="/js/vistaModalSuperheroe.js"></script>
+</body>
+</html>

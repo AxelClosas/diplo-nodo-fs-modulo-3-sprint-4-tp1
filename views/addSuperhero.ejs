@@ -1,78 +1,62 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/css/normalize.css" type="text/css">
-  <link rel="stylesheet" href="/css/styles.css" type="text/css">
+<form action="/api/heroes/agregar" method="post" class="main__form">
 
-  <title>Agregar Superhéroe</title>
-</head>
-<body>
-  <%- include('partials/header') %>
-  <main class="main">
-    <form action="/api/heroes/agregar" method="post" class="main__form">
-
-      <div class="form__campos">
-        <div>
-          <div>
-            <label data-required for="nombreSuperHeroe">Nombre Superhéroe</label>
-            <input type="text" name="nombreSuperHeroe" id="nombreSuperHeroe" required>
-          </div>
-          <div>
-            <label data-required for="nombreReal">Nombre Real</label>
-            <input type="text" name="nombreReal" id="nombreReal" required>
-          </div>
-          
-          <div>
-            <label data-required for="edad">Edad</label>
-            <input type="number" name="edad" id="edad" required>
-          </div>
-          
-          <div>
-            <label for="planetaOrigen">Planeta de Origen</label>
-            <input type="text" name="planetaOrigen" id="planetaOrigen">
-          </div>
-          <div>
-            <label for="creador">Creador</label>
-            <input type="text" name="creador" id="creador">
-          </div>
-        </div>
-        
-        <div class="campos__listado">
-          <div>
-            <label data-required for="poderes">Poderes</label>
-            <p><small>Ingresa los poderes separados por coma.</small></p>
-            <input type="text" name="poderes" id="poderes" required>
-          </div>
-          <div>
-            <label for="aliados">Aliados</label>
-            <p><small>Ingresa los aliados separados por coma.</small></p>
-            <input type="text" name="aliados" id="aliados">
-          </div>
-          <div>
-            <label for="enemigos">Enemigos</label>
-            <p><small>Ingresa los enemigos separados por coma.</small></p>
-            <input type="text" name="enemigos" id="enemigos">
-          </div>
-        </div>
-
+  <div class="form__campos">
+    <div>
+      <div>
+        <label data-required for="nombreSuperHeroe">Nombre Superhéroe</label>
+        <input type="text" name="nombreSuperHeroe" id="nombreSuperHeroe" required>
       </div>
-      
-
-      <div class="form__botones">
-        <button class="form__btnPrincipal" type="submit">Agregar</button>
-        <button class="form__btnCancelar" type="button" id="btnCancelar">Cancelar</button>
+      <div>
+        <label data-required for="nombreReal">Nombre Real</label>
+        <input type="text" name="nombreReal" id="nombreReal" required>
       </div>
 
-    </form>
-  </main>
-    <script>
-    const btnCancelar = document.querySelector("#btnCancelar")
-    btnCancelar.addEventListener('click', () => {
-      // console.log(location.origin.concat('/api','/heroes'))
-      window.location.href = location.origin.concat('/api/heroes')
-    })
-  </script>
-</body>
-</html>
+      <div>
+        <label data-required for="edad">Edad</label>
+        <input type="number" name="edad" id="edad" required>
+      </div>
+
+      <div>
+        <label for="planetaOrigen">Planeta de Origen</label>
+        <input type="text" name="planetaOrigen" id="planetaOrigen">
+      </div>
+      <div>
+        <label for="creador">Creador</label>
+        <input type="text" name="creador" id="creador">
+      </div>
+    </div>
+
+    <div class="campos__listado">
+      <div>
+        <label data-required for="poderes">Poderes</label>
+        <p><small>Ingresa los poderes separados por coma.</small></p>
+        <input type="text" name="poderes" id="poderes" required>
+      </div>
+      <div>
+        <label for="aliados">Aliados</label>
+        <p><small>Ingresa los aliados separados por coma.</small></p>
+        <input type="text" name="aliados" id="aliados">
+      </div>
+      <div>
+        <label for="enemigos">Enemigos</label>
+        <p><small>Ingresa los enemigos separados por coma.</small></p>
+        <input type="text" name="enemigos" id="enemigos">
+      </div>
+    </div>
+
+  </div>
+
+
+  <div class="form__botones">
+    <button class="form__btnPrincipal" type="submit">Agregar</button>
+    <button class="form__btnCancelar" type="button" id="btnCancelar">Cancelar</button>
+  </div>
+
+</form>
+<script>
+  const btnCancelar = document.querySelector("#btnCancelar")
+  btnCancelar.addEventListener('click', () => {
+    // console.log(location.origin.concat('/api','/heroes'))
+    window.location.href = location.origin.concat('/api/heroes')
+  })
+</script>

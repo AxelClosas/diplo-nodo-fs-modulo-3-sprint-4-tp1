@@ -26,7 +26,7 @@ export async function obtenerTodosLosSuperheroesController(req, res) {
 
     // const superheroesFormateados = renderizarListaSuperheroes(superheroes)
     // res.status(200).json(superheroesFormateados)
-    res.render('dashboard', { superheroes })
+    res.render('dashboard', { title: 'Lista de Superhéroes', superheroes: superheroes })
   } catch (error) {
     res.status(500).send( {mensaje: 'Error al obtener los superhéroes', error: error.message })
   }
@@ -62,7 +62,7 @@ export async function obtenerSuperheroesMayoresDe30Controller(req, res) {
 }
 
 export function agregarSuperheroeFormController(req, res) {
-  res.status(200).render('addSuperhero')
+  res.status(200).render('addSuperhero', { title: 'Agregar Superhéroe'})
 }
 
 export async function agregarSuperheroeController(req, res) {
@@ -83,7 +83,7 @@ export async function editarSuperheroePorIdFormController(req, res) {
     if (id === null) {
       throw new Error(`No se encontró el Superhéroe con ID: ${id}`)
     }
-    res.render('editSuperhero', { superheroe })
+    res.render('editSuperhero', { title: 'Editar Superhéroe', superheroe: superheroe })
   } catch (error) {
     res.status(404).send({mensaje: 'Error al actualizar el Superhéroe', error: error.message})
   }
