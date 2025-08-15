@@ -4,8 +4,9 @@ import superHeroRoutes from './routes/superHeroRoutes.mjs'
 import methodOverride from 'method-override'
 import path from 'path'
 import expressLayouts from 'express-ejs-layouts'
+import dotenv from 'dotenv'
 
-
+dotenv.config()
 
 const app = express()
 const PORT = process.env.PORT || 3000
@@ -40,4 +41,7 @@ app.use((req, res) => {
 })
 
 
-app.listen(PORT, () => console.log(`Servidor escuchando en el puerto ${PORT}`))
+app.listen(PORT, () => {
+  console.log(`Servidor escuchando en el puerto ${PORT}`)
+  console.log(`http://localhost:${PORT}/api/heroes`)
+})
