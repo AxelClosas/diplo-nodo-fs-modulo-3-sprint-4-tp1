@@ -11,7 +11,7 @@ export async function obtenerSuperheroePorIdController(req, res) {
       return res.status(404).send( {mensaje: 'Superheroe no encontrado' })
     }
 
-    res.render('viewConfirmDeleteSuperhero', { superheroe })
+    res.render('viewConfirmDeleteSuperhero', { title:'Eliminar Superhéroe', superheroe: superheroe })
     // const superheroeFormateado = renderizarSuperheroe(superheroe)
     // res.status(200).json(superheroeFormateado)
 
@@ -106,6 +106,7 @@ export async function actualizarSuperheroePorIdController(req, res) {
     res.status(404).send({mensaje: 'Error al actualizar el Superhéroe', error: error.message})
   }
 }
+
 
 export async function eliminarSuperheroePorIdController(req, res) {
   try {

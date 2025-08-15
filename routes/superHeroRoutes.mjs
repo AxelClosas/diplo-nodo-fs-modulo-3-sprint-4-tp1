@@ -26,4 +26,5 @@ router.get('/heroes/formAgregar', agregarSuperheroeFormController)
 /* Endpoint para formulario Editar Superheroe */
 router.get('/heroes/:id/editar', editarSuperheroePorIdFormController)
 
+
 export default router

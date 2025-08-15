@@ -1,32 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/css/normalize.css" type="text/css">
-  <link rel="stylesheet" href="/css/styles.css" type="text/css">
+<form class="main__form" action="/api/heroes/<%= superheroe._id %>?_method=DELETE" method="POST">
+  <p>Estás seguro que deseas eliminar a <strong>
+      <%= superheroe.nombreSuperHeroe %>
+    </strong> de tu lista de Superhéroes?</p>
 
-  <title>¿Eliminar Superheroe?</title>
-</head>
-<body class="w-full">
-  <%- include('partials/header') %>
-
-  <main class="main">
-    <form class="main__form" action="/api/heroes/<%= superheroe._id %>?_method=DELETE" method="POST">
-      <p>Estás seguro que deseas eliminar a <strong><%= superheroe.nombreSuperHeroe %></strong> de tu lista de Superhéroes?</p>
-
-      <div class="form__botones">
-        <button class="form__btnEliminar" type="submit">Eliminar</button>
-        <button class="form__btnCancelar" type="button" id="btnCancelar">Cancelar</button>
-      </div>
-    </form>
-  </main>
-  <script>
-    const btnCancelar = document.querySelector("#btnCancelar")
-    btnCancelar.addEventListener('click', () => {
-      // console.log(location.origin.concat('/api','/heroes'))
-      window.location.href = location.origin.concat('/api/heroes')
-    })
-  </script>
-</body>
-</html>
+  <div class="form__botones">
+    <button class="form__btnEliminar" type="submit">Eliminar</button>
+    <button class="form__btnCancelar" type="button" id="btnCancelar">Cancelar</button>
+  </div>
+</form>
+<script>
+  const btnCancelar = document.querySelector("#btnCancelar")
+  btnCancelar.addEventListener('click', () => {
+    // console.log(location.origin.concat('/api','/heroes'))
+    window.location.href = location.origin.concat('/api/heroes')
+  })
+</script>
