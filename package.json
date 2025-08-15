@@ -28,6 +28,7 @@
   },
   "homepage": "https://github.com/AxelClosas/diplo-nodo-fs-modulo-3-sprint-3-tp3#readme",
   "dependencies": {
+    "dotenv": "^17.2.1",
     "ejs": "^3.1.10",
     "express": "^5.1.0",
     "express-ejs-layouts": "^2.5.1",
