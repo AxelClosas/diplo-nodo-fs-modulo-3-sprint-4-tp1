@@ -12,8 +12,6 @@ export async function obtenerSuperheroePorIdController(req, res) {
     }
 
     res.render('viewConfirmDeleteSuperhero', { title:'Eliminar Superhéroe', superheroe: superheroe })
-    // const superheroeFormateado = renderizarSuperheroe(superheroe)
-    // res.status(200).json(superheroeFormateado)
 
   } catch (error) {
     res.status(500).send( { mensaje: 'Error al obtener el superhéroe', error: error.message })
@@ -23,9 +21,6 @@ export async function obtenerSuperheroePorIdController(req, res) {
 export async function obtenerTodosLosSuperheroesController(req, res) {
   try {
     const superheroes = await obtenerTodosLosSuperheroes()
-
-    // const superheroesFormateados = renderizarListaSuperheroes(superheroes)
-    // res.status(200).json(superheroesFormateados)
     res.render('dashboard', { title: 'Lista de Superhéroes', superheroes: superheroes })
   } catch (error) {
     res.status(500).send( {mensaje: 'Error al obtener los superhéroes', error: error.message })
@@ -97,9 +92,7 @@ export async function actualizarSuperheroePorIdController(req, res) {
       throw new Error(`No se encontró el Superhéroe con ID: ${id}`)
     }
     const atributosSuper = req.body
-    // const superheroe = await actualizarSuperheroePorId(id, atributosSuper)
     await actualizarSuperheroePorId(id, atributosSuper)
-    // const superheroeFormateado = renderizarSuperheroe(superheroe)
     return await res.redirect('/api/heroes')
 
   } catch (error) {
